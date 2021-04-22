@@ -14,6 +14,7 @@ public class Movie {
         this.duration = duration;
         this.score = score;
     }
+
     public Movie() {
 
     }

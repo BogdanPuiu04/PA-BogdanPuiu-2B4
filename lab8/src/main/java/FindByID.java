@@ -2,16 +2,16 @@ import java.beans.Statement;
 import java.sql.*;
 
 public class FindByID {
-    public static Movie findMoviesByID(int id) throws SQLException {
+    public static Movie findMoviesByID(String title) throws SQLException {
         int id1 = 0,duration = 0,score = 0;
         String name=null;
         Date date = null;
         Connection connection = DBService.getConnection();
-        String sql="select * from lab8.movies where id=?";
+        String sql="select * from lab8.movies where title=?";
        // Statement statement= (Statement) DBService.getConnection().createStatement();
 
         PreparedStatement preparedStatement=connection.prepareStatement(sql);
-        preparedStatement.setInt(1,id);
+        preparedStatement.setString(1,title);
         ResultSet resultSet=preparedStatement.executeQuery();
         while(resultSet.next())
         {

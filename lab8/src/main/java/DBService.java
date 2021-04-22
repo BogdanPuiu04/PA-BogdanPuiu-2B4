@@ -8,6 +8,7 @@ public class DBService {
     private static final String user = "root";
     private static final String password = "bigshark";
     private static Connection myConnection = null;
+
     public static Connection getConnection() {
         if (myConnection == null) {
             try {
@@ -18,6 +19,7 @@ public class DBService {
         }
         return myConnection;
     }
-    private DBService(){
+
+    private DBService() {
     }
 }
