@@ -52,9 +52,9 @@ public class InsertDb {
             String directs = scanner.next();
             insertToMovies(title, date, duration, score);
             insertToGenres(genre);
-
             String[] act = acts.split(";");
             for (String actorName : act) {
+                System.out.println("Actor name inserted "+actorName);
                 insertToActors(actorName);
             }
             String[] direct = directs.split(";");
@@ -105,6 +105,7 @@ public class InsertDb {
         }
     }
 
+
     public static void insertToActors(String name) throws SQLException {
         Connection connection = DBService.getConnection();
         if (!actors.contains(name)) {
@@ -115,6 +116,7 @@ public class InsertDb {
                 ResultSet resultSet = statement.executeQuery(query);
                 resultSet.next();
                 id_actor=resultSet.getInt("max(id)");
+
             }
             id_actor++;
             actors.add(name);
