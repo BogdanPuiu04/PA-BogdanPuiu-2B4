@@ -18,13 +18,16 @@ public class RestService {
     }
 
     public boolean savePerson(Person person) {
-        if(personRepository.findByUsername(person.getUsername())!=null)
-            return false;
         personRepository.save(person);
         return true;
     }
     public Person findByName(String name){
-        return personRepository.findByUsername(name);
+        try {
+            return personRepository.findByUsername(name);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return null;
     }
     public boolean deletePerson(String name){
         Person person=personRepository.findByUsername(name);
