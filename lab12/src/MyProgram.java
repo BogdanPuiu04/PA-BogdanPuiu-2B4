@@ -1,0 +1,27 @@
+import org.testng.annotations.Test;
+
+public class MyProgram {
+    @Test public static void m1() { }
+    @Test
+    public static void m2() { }
+    @Test public static void m3() {
+        throw new RuntimeException("Boom");
+    }
+    @Test
+    public static void m4() {
+        throw new NullPointerException("Null type");
+    }
+    @Test
+    public static void m5() {
+        throw  new ArithmeticException("Divide by zero");
+    }
+    @Test
+    public static void m6() { }
+    @Test public static void m7() {
+        throw new RuntimeException("Crash");
+    }
+    @Test
+    public static void m8() throws CustomException {
+        throw  new CustomException("Custom");
+    }
+}
