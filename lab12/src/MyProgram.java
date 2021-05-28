@@ -20,8 +20,5 @@ public class MyProgram {
     @Test public static void m7() {
         throw new RuntimeException("Crash");
     }
-    @Test
-    public static void m8() throws CustomException {
-        throw  new CustomException("Custom");
-    }
+
 }
