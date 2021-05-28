@@ -7,6 +7,10 @@ public class City  implements Visitable{
     public Location getLista(int n) {
         return lista.get(n);
     }
+    public List<Location> getLocations() {
+        return lista;
+    }
+
 
     public void addLista(int index,Location a) {
         this.lista.add(index,a);
@@ -25,6 +29,7 @@ public class City  implements Visitable{
                 aux.add(iterator);
             }
         }
+
         Collections.sort(aux, new Comparator<Location>() {
             @Override
             public int compare(Location o1, Location o2) {
@@ -39,6 +44,31 @@ public class City  implements Visitable{
         {
             System.out.println(iterator.getName());
         }
+    }
+
+    public int[][] createGraphMatrix(){
+        int[][] matrix=new int[lista.size()][lista.size()];
+        for(Location location : lista){
+           var aux=location.getMap();
+            for(Location location1 : lista)
+            {
+                matrix[lista.indexOf(location)][lista.indexOf(location1)]=aux.getOrDefault(location1,10000);
+            }
+        }
+        int V=lista.size();
+        for (int k = 0; k < V; k++)
+        {
+            for (int i = 0; i < V; i++)
+            {
+
+                for (int j = 0; j < V; j++)
+                {
+                    if (matrix[i][k] + matrix[k][j] < matrix[i][j])
+                        matrix[i][j] = matrix[i][k] + matrix[k][j];
+                }
+            }
+        }
+        return matrix;
     }
 
     @Override
