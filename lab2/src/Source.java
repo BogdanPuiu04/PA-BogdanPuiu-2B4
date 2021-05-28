@@ -1,8 +1,10 @@
+import java.util.Objects;
+
 public class Source {
     String name;
     int supply;
 
-    enum SourceType {
+  public enum SourceType {
         WAREHOUSE, FACTORY;
     }
 
@@ -47,4 +49,14 @@ public class Source {
     public String toString() {
         return name + " " + type;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Source source = (Source) o;
+        return supply == source.supply && Objects.equals(name, source.name) && type == source.type;
+    }
+
+
 }

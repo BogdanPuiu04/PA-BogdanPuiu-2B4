@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Destination {
     String name;
     int demand;
@@ -24,5 +26,21 @@ public class Destination {
     }
 
     public Destination() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Destination)) return false;
+        Destination that = (Destination) o;
+        return demand == that.demand && Objects.equals(name, that.name);
+    }
+
+    @Override
+    public String toString() {
+        return "Destination{" +
+                "name='" + name + '\'' +
+                ", demand=" + demand +
+                '}';
     }
 }

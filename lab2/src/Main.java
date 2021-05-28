@@ -8,13 +8,21 @@ public class Main {
         Destination D2 = new Destination("D2", 25);
         Destination D3 = new Destination("D3", 25);
         Problem problem = new Problem();
-        int array[][] = {{2, 3, 1}, {5, 4, 8}, {5, 6, 8}};
-        problem.setProblem(array, 3);
-        Source[] sourceVect = {S1, S2, S3};
-        Destination[] destinationVect = {D1, D2, D3};
-        problem.matrixSetter(sourceVect, destinationVect, 3);
-        problem.printMatrix();
-        System.out.println();
-        System.out.printf("%s", sourceVect[0].toString());
+        int[][] array = {{2, 3, 1}, {5, 4, 8}, {5, 6, 8}};
+//        problem.setProblem(array, 3, 3);
+//        Source[] sourceVect = {S1, S2, S3};
+//        Destination[] destinationVect = {D1, D2, D3};
+//        problem.matrixSetter(sourceVect, destinationVect);
+//        Solution solution = new Solution(problem);
+//        solution.solution();
+//        problem.printMatrix();
+//        System.out.println();
+//        System.out.printf("%s", sourceVect[0].toString());
+
+
+        Problem p2=new Problem();
+        p2.randomProblem(40,50);
+        Solution s=new Solution(p2);
+        s.solution();
     }
 }
